@@ -12,6 +12,7 @@
   justify: center;
   align: start;
   text-wrap: wrap;
+  cursor: pointer;
 }
 
 .dropdown-list-item:first-child {

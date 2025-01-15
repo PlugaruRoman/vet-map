@@ -4,19 +4,32 @@ import { DropdownList, NotFound, ListItemDetails, Search } from 'src/components'
 import { InstitutionType } from 'src/types'
 
 import './index.css'
+import { LatLngExpression } from 'leaflet'
 
 type Props = {
+  data: InstitutionType[]
   isOpen: boolean
+  onClickInstitution: (coord?: LatLngExpression) => void
 }
 
-export const DropdownMenu = ({ isOpen }: Props) => {
+export const DropdownMenu = ({ data, isOpen, onClickInstitution }: Props) => {
   const [search, setSearch] = useState<string>()
   const [selectedInstitution, setSelectedInstitution] =
     useState<InstitutionType>()
 
   const onSearch = (value?: string) => setSearch(value)
-  const onSelect = (value?: InstitutionType) => setSelectedInstitution(value)
+  const onSelect = (value?: InstitutionType) => {
+    setSelectedInstitution(value)
+    onClickInstitution(value?.coordinates)
+  }
+  const onClickBack = () => setSelectedInstitution(undefined)
 
+  const filteredData = data?.filter((institution) =>
+    search
+      ? institution?.name?.toLowerCase().includes(search?.toLowerCase?.() || '')
+      : institution?.name
+  )
+  console.log(data)
   return (
     <>
       {isOpen && (
@@ -26,8 +39,8 @@ export const DropdownMenu = ({ isOpen }: Props) => {
               <>
                 <Search value={search} onChange={onSearch} />
 
-                {!search?.length ? (
-                  <DropdownList onSelect={onSelect} />
+                {filteredData?.length ? (
+                  <DropdownList onSelect={onSelect} data={filteredData} />
                 ) : (
                   <NotFound />
                 )}
@@ -35,7 +48,10 @@ export const DropdownMenu = ({ isOpen }: Props) => {
             )}
 
             {selectedInstitution && (
-              <ListItemDetails data={selectedInstitution} />
+              <ListItemDetails
+                onClickBack={onClickBack}
+                data={selectedInstitution}
+              />
             )}
           </div>
         </div>

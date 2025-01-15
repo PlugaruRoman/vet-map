@@ -13,15 +13,29 @@
 }
 
 .details-item-button div {
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .details-item-button:hover {
   color: #1a5ed8;
 }
 
+.details-item-name {
+  font-weight: 500;
+  font-size: 20px;
+  color: #3a3a3f;
+  margin-top: 12px;
+}
+
 .details-item-tabs {
   display: flex;
+  margin: 24px 0px;
+}
+
+.details-item {
+  border-bottom: 1px solid #e5e6e8;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 .details-item-label {
@@ -32,4 +46,22 @@
 .details-item-value {
   font-size: 16px;
   color: #3a3a3f;
+  margin-top: 4px;
+}
+
+.information-list-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #3a3a3f;
+  margin-top: 20px;
+}
+
+.information-list {
+  margin-top: 8px;
+  margin-left: 20px;
+  color: #3a3a3f;
+}
+
+.information-list li {
+  padding: 10px 0px;
 }

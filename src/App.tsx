@@ -3,12 +3,10 @@ import { MapContainer, Marker, TileLayer, ZoomControl } from 'react-leaflet'
 import { Icon, type LatLngExpression, type Map } from 'leaflet'
 
 import { DropdownMenu, MapViewToggle, TabsBar } from 'src/components'
-import { MapTabsFilterType, MapViewType } from 'src/types'
+import { InstitutionType, MapTabsFilterType, MapViewType } from 'src/types'
 
 import MarkerIcon from '/location.svg'
-
-const position: LatLngExpression = [52.51, 13.38]
-const defaultCenter: LatLngExpression = [55.51, 73.38]
+import { institutions } from './data'
 
 const customIcon = new Icon({
   iconUrl: MarkerIcon,
@@ -20,6 +18,8 @@ const customIcon = new Icon({
 function App() {
   const mapRef = useRef<Map | null>(null)
 
+  const defaultCenter = institutions?.[0]?.coordinates
+
   const [activeView, setActiveView] = useState(MapViewType.MAP)
   const [activeTab, setActiveTab] = useState(MapTabsFilterType.ALL_INSTITUTIONS)
   const [isOpenMenu, setIsOpenMenu] = useState(false)
@@ -27,10 +27,10 @@ function App() {
   const onChangeActiveView = (value: MapViewType) => setActiveView(value)
   const onChangeActiveTab = (value: MapTabsFilterType) => setActiveTab(value)
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (coord?: LatLngExpression) => {
     if (mapRef.current) {
       const map = mapRef.current
-      map.flyTo(defaultCenter, 14, {
+      map.flyTo(coord as LatLngExpression, 14, {
         duration: 3
       })
     }
@@ -50,12 +50,16 @@ function App() {
         onClickMenuButton={setIsOpenMenu}
       />
 
-      <DropdownMenu isOpen={isOpenMenu} />
+      <DropdownMenu
+        data={institutions as InstitutionType[]}
+        isOpen={isOpenMenu}
+        onClickInstitution={handleButtonClick}
+      />
 
       <MapContainer
         className="map-container"
         ref={mapRef}
-        center={position}
+        center={defaultCenter as LatLngExpression}
         zoom={13}
         scrollWheelZoom={true}
         zoomControl={false}
@@ -74,7 +78,13 @@ function App() {
           />
         )}
 
-        <Marker icon={customIcon} position={position} />
+        {institutions.map((institution) => (
+          <Marker
+            key={institution.id}
+            icon={customIcon}
+            position={institution.coordinates as LatLngExpression}
+          />
+        ))}
       </MapContainer>
     </div>
   )
