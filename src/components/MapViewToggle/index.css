@@ -1,0 +1,32 @@
+.map-view-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 8px;
+  background: #ffffff;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 500;
+  border-radius: 6px;
+}
+
+.map-view-toggle-item {
+  font-size: 13px;
+  color: #83878d;
+  font-weight: 400px;
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.map-view-toggle-item:hover {
+  color: #3a3a3f;
+}
+
+.map-view-toggle-item__active {
+  color: #3a3a3f;
+  font-weight: 500px;
+}

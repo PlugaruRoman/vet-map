@@ -1,0 +1,17 @@
+.tabs-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 10px;
+  max-width: max-content;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  z-index: 500;
+  max-width: max-content;
+  max-height: 70%;
+  overflow: hidden;
+}

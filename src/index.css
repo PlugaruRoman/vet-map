@@ -1,0 +1,23 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+.map-container {
+  position: relative;
+  border-radius: 20px;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 94vh;
+}
+
+.leaflet-container .leaflet-control-attribution {
+  display: none;
+}
