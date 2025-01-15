@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { MapContainer, Marker, TileLayer, ZoomControl } from 'react-leaflet'
 import { Icon, type LatLngExpression, type Map } from 'leaflet'
+import MarkerClusterGroup from 'react-leaflet-markercluster'
 
 import { DropdownMenu, MapViewToggle, TabsBar } from 'src/components'
 import { InstitutionType, MapTabsFilterType, MapViewType } from 'src/types'
@@ -78,13 +79,15 @@ function App() {
           />
         )}
 
-        {institutions.map((institution) => (
-          <Marker
-            key={institution.id}
-            icon={customIcon}
-            position={institution.coordinates as LatLngExpression}
-          />
-        ))}
+        <MarkerClusterGroup>
+          {institutions.map((institution) => (
+            <Marker
+              key={institution.id}
+              icon={customIcon}
+              position={institution.coordinates as LatLngExpression}
+            />
+          ))}
+        </MarkerClusterGroup>
       </MapContainer>
     </div>
   )

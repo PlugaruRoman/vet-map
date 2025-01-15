@@ -29,7 +29,7 @@ export const DropdownMenu = ({ data, isOpen, onClickInstitution }: Props) => {
       ? institution?.name?.toLowerCase().includes(search?.toLowerCase?.() || '')
       : institution?.name
   )
-  console.log(data)
+
   return (
     <>
       {isOpen && (
