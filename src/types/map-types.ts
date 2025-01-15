@@ -9,3 +9,8 @@ export enum MapTabsFilterType {
   COLLEAGUES = 'Colegii',
   VOCATIONAL_SCHOOLS = 'Școli profesionale'
 }
+
+export enum DetailsType {
+  DETAILS = 'Detalii',
+  INFORMATION = 'Informație'
+}

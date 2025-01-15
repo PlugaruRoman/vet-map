@@ -1,10 +1,31 @@
+import { InstitutionType } from 'src/types'
+
 import './index.css'
 
-export const DropdownList = () => {
+type Props = {
+  onSelect: (value: InstitutionType) => void
+}
+
+export const DropdownList = ({ onSelect }: Props) => {
   return (
     <ul className="dropdown-list">
-      <li className="dropdown-list-item">
-        <span className="dropdown-list-item-tag">Centre de excelenţă</span>
+      <li
+        className="dropdown-list-item"
+        onClick={() =>
+          onSelect({
+            id: 1,
+            category: 'Centre de excelenţă',
+            name: 'I. P. Centrul de excelenţă în informatică şi tehnologii informaţionale din Chișinău',
+            founding_authority: 'Ministerul Educației și Cercetării',
+            institution_specialization: 'Domeniul TIC',
+            physical_address: 'mun. Chişinău, str. Sarmizegetusa, nr. 48',
+            url: 'https://www.youtube.com/',
+            email: 'secretariat@ceiti.md',
+            contact_phone: '022 523 001068 654 320 - Andrei Ciobanu, Director '
+          })
+        }
+      >
+        <span className="tag-item">Centre de excelenţă</span>
 
         <p className="dropdown-list-item-title">
           I. P. Centrul de excelenţă în informatică şi tehnologii informaţionale
@@ -15,138 +36,6 @@ export const DropdownList = () => {
           mun. Chişinău, str. Sarmizegetusa, nr. 48
         </span>
       </li>
-
-      <div className="dropdown-list-item">
-        <div className="dropdown-list-item-tag">Centre de excelenţă</div>
-
-        <div className="dropdown-list-item-title">
-          I. P. Centrul de excelență în transporturi din Chișinău
-        </div>
-
-        <div className="dropdown-list-item-address">
-          mun. Chişinău, str. Sarmizegetusa, nr. 31
-        </div>
-      </div>
-
-      <div className="dropdown-list-item">
-        <div className="dropdown-list-item-tag">Centre de excelenţă</div>
-
-        <div className="dropdown-list-item-title">
-          I. P. Centrul de excelență în transporturi din Chișinău
-        </div>
-
-        <div className="dropdown-list-item-address">
-          mun. Chişinău, str. Sarmizegetusa, nr. 31
-        </div>
-      </div>
-
-      <div className="dropdown-list-item">
-        <div className="dropdown-list-item-tag">Centre de excelenţă</div>
-
-        <div className="dropdown-list-item-title">
-          I. P. Centrul de excelență în transporturi din Chișinău
-        </div>
-
-        <div className="dropdown-list-item-address">
-          mun. Chişinău, str. Sarmizegetusa, nr. 31
-        </div>
-      </div>
-
-      <div className="dropdown-list-item">
-        <div className="dropdown-list-item-tag">Centre de excelenţă</div>
-
-        <div className="dropdown-list-item-title">
-          I. P. Centrul de excelență în transporturi din Chișinău
-        </div>
-
-        <div className="dropdown-list-item-address">
-          mun. Chişinău, str. Sarmizegetusa, nr. 31
-        </div>
-      </div>
-
-      <div className="dropdown-list-item">
-        <div className="dropdown-list-item-tag">Centre de excelenţă</div>
-
-        <div className="dropdown-list-item-title">
-          I. P. Centrul de excelență în transporturi din Chișinău
-        </div>
-
-        <div className="dropdown-list-item-address">
-          mun. Chişinău, str. Sarmizegetusa, nr. 31
-        </div>
-      </div>
-
-      <div className="dropdown-list-item">
-        <div className="dropdown-list-item-tag">Centre de excelenţă</div>
-
-        <div className="dropdown-list-item-title">
-          I. P. Centrul de excelență în transporturi din Chișinău
-        </div>
-
-        <div className="dropdown-list-item-address">
-          mun. Chişinău, str. Sarmizegetusa, nr. 31
-        </div>
-      </div>
-
-      <div className="dropdown-list-item">
-        <div className="dropdown-list-item-tag">Centre de excelenţă</div>
-
-        <div className="dropdown-list-item-title">
-          I. P. Centrul de excelență în transporturi din Chișinău
-        </div>
-
-        <div className="dropdown-list-item-address">
-          mun. Chişinău, str. Sarmizegetusa, nr. 31
-        </div>
-      </div>
-
-      <div className="dropdown-list-item">
-        <div className="dropdown-list-item-tag">Centre de excelenţă</div>
-
-        <div className="dropdown-list-item-title">
-          I. P. Centrul de excelență în transporturi din Chișinău
-        </div>
-
-        <div className="dropdown-list-item-address">
-          mun. Chişinău, str. Sarmizegetusa, nr. 31
-        </div>
-      </div>
-
-      <div className="dropdown-list-item">
-        <div className="dropdown-list-item-tag">Centre de excelenţă</div>
-
-        <div className="dropdown-list-item-title">
-          I. P. Centrul de excelență în transporturi din Chișinău
-        </div>
-
-        <div className="dropdown-list-item-address">
-          mun. Chişinău, str. Sarmizegetusa, nr. 31
-        </div>
-      </div>
-
-      <div className="dropdown-list-item">
-        <div className="dropdown-list-item-tag">Centre de excelenţă</div>
-
-        <div className="dropdown-list-item-title">
-          I. P. Centrul de excelență în transporturi din Chișinău
-        </div>
-
-        <div className="dropdown-list-item-address">
-          mun. Chişinău, str. Sarmizegetusa, nr. 31
-        </div>
-      </div>
-
-      <div className="dropdown-list-item">
-        <div className="dropdown-list-item-tag">Centre de excelenţă</div>
-
-        <div className="dropdown-list-item-title">
-          I. P. Centrul de excelență în transporturi din Chișinău
-        </div>
-
-        <div className="dropdown-list-item-address">
-          mun. Chişinău, str. Sarmizegetusa, nr. 31
-        </div>
-      </div>
     </ul>
   )
 }

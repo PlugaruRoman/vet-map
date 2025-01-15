@@ -8,6 +8,11 @@ body {
   font-family: 'Rubik', sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: #357bfc;
+}
+
 .map-container {
   position: relative;
   border-radius: 20px;
@@ -20,4 +25,17 @@ body {
 
 .leaflet-container .leaflet-control-attribution {
   display: none;
+}
+
+.tag-item {
+  color: #357bfc;
+  max-width: max-content;
+  background-color: #eef6ff;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.w-full {
+  width: 100%;
 }

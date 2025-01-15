@@ -1,0 +1,35 @@
+.details-item-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: none;
+  color: #357bfc;
+  font-size: 16px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding-y: 10px;
+}
+
+.details-item-button div {
+  margin-top: 4px;
+}
+
+.details-item-button:hover {
+  color: #1a5ed8;
+}
+
+.details-item-tabs {
+  display: flex;
+}
+
+.details-item-label {
+  font-size: 14px;
+  color: #83878d;
+}
+
+.details-item-value {
+  font-size: 16px;
+  color: #3a3a3f;
+}

@@ -22,15 +22,6 @@
   padding-bottom: 16px;
 }
 
-.dropdown-list-item-tag {
-  color: #357bfc;
-  max-width: max-content;
-  background-color: #eef6ff;
-  font-size: 14px;
-  border-radius: 4px;
-  padding: 2px 6px;
-}
-
 .dropdown-list-item-title {
   font-size: 16px;
   color: #242528;

@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { Search } from '../Search'
+
+import { DropdownList, NotFound, ListItemDetails, Search } from 'src/components'
+import { InstitutionType } from 'src/types'
 
 import './index.css'
-import { DropdownList } from '../DropdownList'
-import { NotFound } from '../NotFound'
 
 type Props = {
   isOpen: boolean
@@ -11,19 +11,32 @@ type Props = {
 
 export const DropdownMenu = ({ isOpen }: Props) => {
   const [search, setSearch] = useState<string>()
+  const [selectedInstitution, setSelectedInstitution] =
+    useState<InstitutionType>()
 
   const onSearch = (value?: string) => setSearch(value)
+  const onSelect = (value?: InstitutionType) => setSelectedInstitution(value)
 
   return (
     <>
       {isOpen && (
         <div className="dropdown-menu">
           <div className="dropdown-menu-content">
-            <Search value={search} onChange={onSearch} />
+            {!selectedInstitution && (
+              <>
+                <Search value={search} onChange={onSearch} />
 
-            {/* <DropdownList /> */}
+                {!search?.length ? (
+                  <DropdownList onSelect={onSelect} />
+                ) : (
+                  <NotFound />
+                )}
+              </>
+            )}
 
-            <NotFound />
+            {selectedInstitution && (
+              <ListItemDetails data={selectedInstitution} />
+            )}
           </div>
         </div>
       )}

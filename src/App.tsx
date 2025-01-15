@@ -1,12 +1,21 @@
 import { useState, useRef } from 'react'
 import { MapContainer, Marker, TileLayer, ZoomControl } from 'react-leaflet'
-import type { LatLngExpression, Map } from 'leaflet'
+import { Icon, type LatLngExpression, type Map } from 'leaflet'
 
 import { DropdownMenu, MapViewToggle, TabsBar } from 'src/components'
 import { MapTabsFilterType, MapViewType } from 'src/types'
 
+import MarkerIcon from '/location.svg'
+
 const position: LatLngExpression = [52.51, 13.38]
 const defaultCenter: LatLngExpression = [55.51, 73.38]
+
+const customIcon = new Icon({
+  iconUrl: MarkerIcon,
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32]
+})
 
 function App() {
   const mapRef = useRef<Map | null>(null)
@@ -65,7 +74,7 @@ function App() {
           />
         )}
 
-        <Marker position={position} />
+        <Marker icon={customIcon} position={position} />
       </MapContainer>
     </div>
   )
