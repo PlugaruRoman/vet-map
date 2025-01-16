@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Button } from 'src/components'
 import { ArrowDown, LayerIcon } from 'src/assets'
 import { MapTabsFilterType } from 'src/types'
+
 import './index.css'
 
 type Props = {
@@ -23,16 +24,18 @@ export const TabsBarMobile = ({
     <div className="tabs-bar-mobile">
       <Button
         onClick={() => onClickMenuButton((prev) => !prev)}
-        className={isOpenMenu ? 'button__active' : 'button'}
+        className={`button ${isOpenMenu ? 'button__active' : ''}`}
       >
         <LayerIcon />
       </Button>
+
+      <div className="divider" />
 
       <div className="custom-dropdown">
         <Button
           onClick={() => setIsDropdownOpen((prev) => !prev)}
           icon={<ArrowDown />}
-          className="button w-full"
+          block
         >
           {activeTab}
         </Button>
@@ -42,7 +45,7 @@ export const TabsBarMobile = ({
             {Object.values(MapTabsFilterType).map((type) => (
               <Button
                 key={type}
-                className={activeTab === type ? 'button__active' : 'button'}
+                className={`button ${activeTab === type ? 'button__active' : ''}`}
                 onClick={() => {
                   onChangeActiveTab(type)
                   setIsDropdownOpen(false)

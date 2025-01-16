@@ -4,8 +4,8 @@
   gap: 8px;
   border: none;
   background: none;
-  color: #357bfc;
-  font-size: 16px;
+  color: var(--primary-color);
+  font-size: var(--font-size-title);
   margin-bottom: 24px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -17,13 +17,13 @@
 }
 
 .details-item-button:hover {
-  color: #1a5ed8;
+  color: var(--button-background-active-hover-color);
 }
 
 .details-item-name {
   font-weight: 500;
-  font-size: 20px;
-  color: #3a3a3f;
+  font-size: var(--font-size-title-xl);
+  color: var(--text-information-color);
   margin-top: 12px;
 }
 
@@ -33,33 +33,33 @@
 }
 
 .details-item {
-  border-bottom: 1px solid #e5e6e8;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 12px;
   margin-bottom: 12px;
 }
 
 .details-item-label {
-  font-size: 14px;
-  color: #83878d;
+  font-size: var(--font-size-text);
+  color: var(--text-secondary-color);
 }
 
 .details-item-value {
-  font-size: 16px;
-  color: #3a3a3f;
+  font-size: var(--font-size-title);
+  color: var(--text-information-color);
   margin-top: 4px;
 }
 
 .information-list-title {
-  font-size: 20px;
+  font-size: var(--font-size-title-xl);
   font-weight: 500;
-  color: #3a3a3f;
+  color: var(--text-information-color);
   margin-top: 20px;
 }
 
 .information-list {
   margin-top: 8px;
   margin-left: 20px;
-  color: #3a3a3f;
+  color: var(--text-information-color);
 }
 
 .information-list li {

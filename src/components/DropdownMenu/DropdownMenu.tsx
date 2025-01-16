@@ -1,10 +1,9 @@
 import { useState } from 'react'
-
+import type { LatLngExpression } from 'leaflet'
 import { DropdownList, NotFound, ListItemDetails, Search } from 'src/components'
 import { InstitutionType } from 'src/types'
 
 import './index.css'
-import { LatLngExpression } from 'leaflet'
 
 type Props = {
   search?: string

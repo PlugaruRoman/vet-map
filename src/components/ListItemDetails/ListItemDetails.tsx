@@ -1,9 +1,9 @@
+import { useState } from 'react'
+import { Button } from 'src/components'
 import { LeftArrow } from 'src/assets'
+import { DetailsType, InstitutionType } from 'src/types'
 
 import './index.css'
-import { Button } from '../Button'
-import { useState } from 'react'
-import { DetailsType, InstitutionType } from 'src/types'
 
 type Props = {
   data?: InstitutionType
@@ -32,11 +32,10 @@ export const ListItemDetails = ({ data, onClickBack }: Props) => {
           <Button
             key={type}
             onClick={() => onChangeDetailType(type)}
-            className={
-              activeDetailType === type
-                ? 'button__active w-full'
-                : 'button w-full'
-            }
+            block
+            className={`button button__block ${
+              activeDetailType === type ? 'button__active' : ''
+            }`}
           >
             {type}
           </Button>

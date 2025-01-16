@@ -10,11 +10,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #357bfc;
-}
-
-.map-container {
-  border-radius: 20px;
+  color: var(--link-color);
 }
 
 .leaflet-container {
@@ -32,7 +28,7 @@ a {
   bottom: 20px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 601px) {
   .leaflet-right .leaflet-control {
     right: 16px;
     bottom: 16px;
@@ -40,30 +36,32 @@ a {
 }
 
 .tag-item {
-  color: #357bfc;
+  color: --primary-color;
   max-width: max-content;
-  background-color: #eef6ff;
-  font-size: 14px;
+  background-color: var(--background-color);
+  font-size: var(--font-size-text);
   border-radius: 4px;
   padding: 2px 6px;
 }
 
-.w-full {
-  width: 100%;
-}
-
 .marker-cluster-small {
-  background-color: rgba(53, 123, 252, 0.6);
+  background-color: var(--primary-color);
 }
 
 .marker-cluster-medium {
-  background-color: rgba(53, 123, 252, 0.6);
+  background-color: var(--primary-color);
 }
 
 .marker-cluster-large {
-  background-color: rgba(53, 123, 252, 0.6);
+  background-color: var(--primary-color);
 }
 
 .marker-cluster div {
-  background-color: #2c6ed6;
+  background-color: var(--primary-color);
+}
+
+.divider {
+  width: 1px;
+  height: 30px;
+  background-color: var(--border-color);
 }

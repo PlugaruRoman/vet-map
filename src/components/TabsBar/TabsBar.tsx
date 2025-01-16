@@ -23,16 +23,18 @@ export const TabsBar = ({
     <div className="tabs-bar">
       <Button
         onClick={() => onClickMenuButton((prev) => !prev)}
-        className={isOpenMenu ? 'button__active' : 'button'}
+        className={`button ${isOpenMenu ? 'button__active' : ''}`}
       >
         <LayerIcon />
       </Button>
+
+      <div className="divider" />
 
       {Object.values(MapTabsFilterType).map((type) => (
         <Button
           key={type}
           onClick={() => onChangeActiveTab(type)}
-          className={activeTab === type ? 'button__active' : 'button'}
+          className={`button ${activeTab === type ? 'button__active' : ''}`}
         >
           {type}
         </Button>

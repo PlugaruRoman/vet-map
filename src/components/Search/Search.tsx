@@ -1,7 +1,7 @@
-import './index.css'
-
-import { CloseIcon, SearchIcon } from 'src/assets'
 import { useState } from 'react'
+import { CloseIcon, SearchIcon } from 'src/assets'
+
+import './index.css'
 
 type Props = {
   value?: string

@@ -19,6 +19,8 @@ export const MapViewToggle = ({ activeView, onChangeToggle }: Props) => {
         {MapViewType.MAP}
       </span>
 
+      <div className="divider" />
+
       <span
         onClick={() => onChangeToggle(MapViewType.SATELLITE)}
         className={`map-view-toggle-item ${
