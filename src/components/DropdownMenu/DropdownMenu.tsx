@@ -7,28 +7,28 @@ import './index.css'
 import { LatLngExpression } from 'leaflet'
 
 type Props = {
+  search?: string
   data: InstitutionType[]
   isOpen: boolean
+  onSearch: (value?: string) => void
   onClickInstitution: (coord?: LatLngExpression) => void
 }
 
-export const DropdownMenu = ({ data, isOpen, onClickInstitution }: Props) => {
-  const [search, setSearch] = useState<string>()
+export const DropdownMenu = ({
+  data,
+  search,
+  isOpen,
+  onSearch,
+  onClickInstitution
+}: Props) => {
   const [selectedInstitution, setSelectedInstitution] =
     useState<InstitutionType>()
 
-  const onSearch = (value?: string) => setSearch(value)
   const onSelect = (value?: InstitutionType) => {
     setSelectedInstitution(value)
     onClickInstitution(value?.coordinates)
   }
   const onClickBack = () => setSelectedInstitution(undefined)
-
-  const filteredData = data?.filter((institution) =>
-    search
-      ? institution?.name?.toLowerCase().includes(search?.toLowerCase?.() || '')
-      : institution?.name
-  )
 
   return (
     <>
@@ -39,8 +39,8 @@ export const DropdownMenu = ({ data, isOpen, onClickInstitution }: Props) => {
               <>
                 <Search value={search} onChange={onSearch} />
 
-                {filteredData?.length ? (
-                  <DropdownList onSelect={onSelect} data={filteredData} />
+                {data?.length ? (
+                  <DropdownList onSelect={onSelect} data={data} />
                 ) : (
                   <NotFound />
                 )}

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useMemo } from 'react'
 import { MapContainer, Marker, TileLayer, ZoomControl } from 'react-leaflet'
 import { Icon, type LatLngExpression, type Map } from 'leaflet'
 import MarkerClusterGroup from 'react-leaflet-markercluster'
@@ -10,6 +10,7 @@ import {
   TabsBarMobile
 } from 'src/components'
 import { InstitutionType, MapTabsFilterType, MapViewType } from 'src/types'
+import { onFilterData, onSearchData } from 'src/utils'
 
 import MarkerIcon from '/location.svg'
 import { institutions } from './data'
@@ -29,9 +30,11 @@ function App() {
   const [activeView, setActiveView] = useState(MapViewType.MAP)
   const [activeTab, setActiveTab] = useState(MapTabsFilterType.ALL_INSTITUTIONS)
   const [isOpenMenu, setIsOpenMenu] = useState(false)
+  const [search, setSearch] = useState<string>()
 
   const onChangeActiveView = (value: MapViewType) => setActiveView(value)
   const onChangeActiveTab = (value: MapTabsFilterType) => setActiveTab(value)
+  const onSearch = (value?: string) => setSearch(value)
 
   const handleButtonClick = (coord?: LatLngExpression) => {
     if (mapRef.current) {
@@ -42,15 +45,33 @@ function App() {
     }
   }
 
+  const filteredData = useMemo(() => {
+    if (
+      !search &&
+      (!activeTab || activeTab === MapTabsFilterType.ALL_INSTITUTIONS)
+    ) {
+      return institutions
+    }
+
+    let result = institutions
+    if (search) result = onSearchData(result, search)
+    if (activeTab && activeTab !== MapTabsFilterType.ALL_INSTITUTIONS) {
+      result = onFilterData(result, activeTab)
+    }
+    return result
+  }, [search, activeTab])
+
   return (
-    <div>
+    <>
       <MapViewToggle
         activeView={activeView}
         onChangeToggle={onChangeActiveView}
       />
 
       <DropdownMenu
-        data={institutions as InstitutionType[]}
+        search={search}
+        onSearch={onSearch}
+        data={filteredData as InstitutionType[]}
         isOpen={isOpenMenu}
         onClickInstitution={handleButtonClick}
       />
@@ -92,7 +113,7 @@ function App() {
         )}
 
         <MarkerClusterGroup>
-          {institutions.map((institution) => (
+          {filteredData?.map((institution) => (
             <Marker
               key={institution.id}
               icon={customIcon}
@@ -101,7 +122,7 @@ function App() {
           ))}
         </MarkerClusterGroup>
       </MapContainer>
-    </div>
+    </>
   )
 }
 

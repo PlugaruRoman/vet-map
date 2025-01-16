@@ -1,4 +1,6 @@
-export const institutions = [
+import { InstitutionType } from './types'
+
+export const institutions: InstitutionType[] = [
   {
     id: 1,
     category: 'Centre de excelenţă',
@@ -25,7 +27,7 @@ export const institutions = [
   },
   {
     id: 3,
-    category: 'Centre de excelenţă',
+    category: 'Colegii',
     name: 'Centrul de excelenţă în agricultură din Orhei',
     founding_authority: 'Ministerul Agriculturii',
     institution_specialization: 'Agricultură',
@@ -37,7 +39,7 @@ export const institutions = [
   },
   {
     id: 4,
-    category: 'Centre de excelenţă',
+    category: 'Colegii',
     name: 'Centrul de excelenţă în medicină din Cahul',
     founding_authority: 'Ministerul Sănătății',
     institution_specialization: 'Medicină',
@@ -49,7 +51,7 @@ export const institutions = [
   },
   {
     id: 5,
-    category: 'Centre de excelenţă',
+    category: 'Școli profesionale',
     name: 'Centrul de excelenţă în arte din Comrat',
     founding_authority: 'Ministerul Culturii',
     institution_specialization: 'Arte',
@@ -61,7 +63,7 @@ export const institutions = [
   },
   {
     id: 6,
-    category: 'Centre de excelenţă',
+    category: 'Școli profesionale',
     name: 'Centrul de excelenţă în economie din Tiraspol',
     founding_authority: 'Ministerul Economiei',
     institution_specialization: 'Economie',
