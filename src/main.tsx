@@ -6,8 +6,10 @@ import 'leaflet/dist/leaflet.css'
 import 'react-leaflet-markercluster/styles'
 import './index.css'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-)
+export function renderMapWidget() {
+  return createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+      <App />
+    </StrictMode>
+  )
+}
