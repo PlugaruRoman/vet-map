@@ -9,12 +9,8 @@ import './index.css'
 import './palette.css'
 import './variable.css'
 
-export function renderMapWidget() {
-  return createRoot(document.getElementById('map-widget')!).render(
-    <StrictMode>
-      <App />
-    </StrictMode>
-  )
-}
-
-renderMapWidget()
+createRoot(document.getElementById('map-widget')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+)
