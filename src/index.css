@@ -14,17 +14,29 @@ a {
 }
 
 .map-container {
-  position: relative;
   border-radius: 20px;
 }
 
 .leaflet-container {
   width: 100%;
-  height: 94vh;
+  height: 100vh;
+  position: relative;
 }
 
 .leaflet-container .leaflet-control-attribution {
   display: none;
+}
+
+.leaflet-right .leaflet-control {
+  right: 20px;
+  bottom: 20px;
+}
+
+@media (max-width: 760px) {
+  .leaflet-right .leaflet-control {
+    right: 16px;
+    bottom: 16px;
+  }
 }
 
 .tag-item {

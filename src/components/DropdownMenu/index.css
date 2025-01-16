@@ -15,6 +15,14 @@
   scrollbar-width: none;
 }
 
+@media (max-width: 601px) {
+  .dropdown-menu {
+    left: 16px;
+    top: 64px;
+    width: calc(100% - 30px);
+  }
+}
+
 .dropdown-menu-content {
   padding: 16px 16px 0px 16px;
   height: 100%;

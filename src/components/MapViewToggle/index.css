@@ -30,3 +30,12 @@
   color: #3a3a3f;
   font-weight: 500px;
 }
+
+@media (max-width: 760px) {
+  .map-view-toggle {
+    left: 16px;
+    bottom: 16px;
+    right: auto;
+    top: auto;
+  }
+}

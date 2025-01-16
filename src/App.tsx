@@ -3,7 +3,12 @@ import { MapContainer, Marker, TileLayer, ZoomControl } from 'react-leaflet'
 import { Icon, type LatLngExpression, type Map } from 'leaflet'
 import MarkerClusterGroup from 'react-leaflet-markercluster'
 
-import { DropdownMenu, MapViewToggle, TabsBar } from 'src/components'
+import {
+  DropdownMenu,
+  MapViewToggle,
+  TabsBar,
+  TabsBarMobile
+} from 'src/components'
 import { InstitutionType, MapTabsFilterType, MapViewType } from 'src/types'
 
 import MarkerIcon from '/location.svg'
@@ -11,7 +16,7 @@ import { institutions } from './data'
 
 const customIcon = new Icon({
   iconUrl: MarkerIcon,
-  iconSize: [32, 32],
+  iconSize: [42, 42],
   iconAnchor: [16, 32],
   popupAnchor: [0, -32]
 })
@@ -44,17 +49,24 @@ function App() {
         onChangeToggle={onChangeActiveView}
       />
 
-      <TabsBar
+      <DropdownMenu
+        data={institutions as InstitutionType[]}
+        isOpen={isOpenMenu}
+        onClickInstitution={handleButtonClick}
+      />
+
+      <TabsBarMobile
         activeTab={activeTab}
         isOpenMenu={isOpenMenu}
         onChangeActiveTab={onChangeActiveTab}
         onClickMenuButton={setIsOpenMenu}
       />
 
-      <DropdownMenu
-        data={institutions as InstitutionType[]}
-        isOpen={isOpenMenu}
-        onClickInstitution={handleButtonClick}
+      <TabsBar
+        activeTab={activeTab}
+        isOpenMenu={isOpenMenu}
+        onChangeActiveTab={onChangeActiveTab}
+        onClickMenuButton={setIsOpenMenu}
       />
 
       <MapContainer

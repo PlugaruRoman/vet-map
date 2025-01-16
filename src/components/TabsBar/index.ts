@@ -1,1 +1,2 @@
-export * from "./TabsBar";
+export * from './TabsBar'
+export * from './TabsBarMobile'
