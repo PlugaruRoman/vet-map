@@ -13,3 +13,5 @@ export function renderMapWidget() {
     </StrictMode>
   )
 }
+
+renderMapWidget()

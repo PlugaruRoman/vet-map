@@ -12,7 +12,7 @@ import {
 import { InstitutionType, MapTabsFilterType, MapViewType } from 'src/types'
 import { onFilterData, onSearchData } from 'src/utils'
 
-import MarkerIcon from '/location.svg'
+import MarkerIcon from '/src/assets/location.svg'
 import { institutions } from './data'
 
 const customIcon = new Icon({
