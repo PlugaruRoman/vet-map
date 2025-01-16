@@ -10,7 +10,7 @@ import './palette.css'
 import './variable.css'
 
 export function renderMapWidget() {
-  return createRoot(document.getElementById('root')!).render(
+  return createRoot(document.getElementById('map-widget')!).render(
     <StrictMode>
       <App />
     </StrictMode>
