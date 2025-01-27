@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button } from 'src/components'
+import { Button, Put } from 'src/components'
 import { LeftArrow } from 'src/assets'
 import { DetailsType, InstitutionType } from 'src/types'
 
@@ -7,7 +7,7 @@ import './index.css'
 
 type Props = {
   data?: InstitutionType
-  onClickBack: () => void
+  onClickBack: (institution?: InstitutionType) => void
 }
 
 export const ListItemDetails = ({ data, onClickBack }: Props) => {
@@ -17,13 +17,13 @@ export const ListItemDetails = ({ data, onClickBack }: Props) => {
 
   return (
     <>
-      <button onClick={onClickBack} className="details-item-button">
+      <button onClick={() => onClickBack(data)} className="details-item-button">
         <LeftArrow />
 
         <div>Înapoi</div>
       </button>
 
-      <div className="tag-item">Centre de excelenţă</div>
+      <div className="tag-item">{data?.type}</div>
 
       <p className="details-item-name">{data?.name}</p>
 
@@ -47,59 +47,44 @@ export const ListItemDetails = ({ data, onClickBack }: Props) => {
           <div className="details-item">
             <div className="details-item-label">Autoritatea fondatoare</div>
 
-            <div className="details-item-value">{data?.founding_authority}</div>
+            <Put className="details-item-value">{data?.founding_authority}</Put>
           </div>
           <div className="details-item">
             <div className="details-item-label">Specializarea instituției</div>
 
-            <div className="details-item-value">
-              {data?.institution_specialization}
-            </div>
+            <Put className="details-item-value">{data?.summary}</Put>
           </div>
           <div className="details-item">
             <div className="details-item-label">
               Adresa fizică a instituției
             </div>
 
-            <div className="details-item-value">{data?.physical_address}</div>
+            <Put className="details-item-value">{data?.physical_address}</Put>
           </div>
           <div className="details-item">
             <div className="details-item-label">Siteul instituției</div>
 
-            <a href={data?.url} target="_blank">
-              {data?.url}
-            </a>
+            <Put>
+              {data?.website && (
+                <a href={data?.website} target="_blank">
+                  {data?.website}
+                </a>
+              )}
+            </Put>
           </div>
           <div className="details-item">
             <div className="details-item-label">Adresa mail a instituției</div>
 
-            <div className="details-item-value">{data?.email}</div>
+            <Put className="details-item-value">{data?.email}</Put>
           </div>
           <div className="details-item">
             <div className="details-item-label">Telefonul de contact</div>
 
-            <div className="details-item-value">{data?.contact_phone}</div>
+            <Put className="details-item-value">{data?.phone}</Put>
           </div>
         </>
       ) : (
-        <>
-          <h4 className="information-list-title">Specialități</h4>
-          <ul className="information-list">
-            <li>Administrarea aplicațiilor web</li>
-            <li>Programarea și analiza produselor program</li>
-            <li>Administrarea bazelor de date</li>
-            <li>Rețele de calculatoare</li>
-            <li>Contabilitate Jurisprudență</li>
-            <li>Servicii administrative și de secretariat</li>
-            <li>Operator pentru suportul tehnic al calculatoarelor</li>
-          </ul>
-
-          <h4 className="information-list-title">Meserii</h4>
-          <ul className="information-list ">
-            <li>Operator pentru suportul tehnic al calculatoarelor</li>
-            <li>Operator introducere, validare și prelucrare date</li>
-          </ul>
-        </>
+        <div dangerouslySetInnerHTML={{ __html: data?.description || '' }} />
       )}
     </>
   )

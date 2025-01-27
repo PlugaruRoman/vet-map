@@ -5,9 +5,9 @@ export enum MapViewType {
 
 export enum MapTabsFilterType {
   ALL_INSTITUTIONS = 'Toate instituțiile',
-  CENTERS_OF_EXCELLENCE = 'Centre de excelenţă',
-  COLLEAGUES = 'Colegii',
-  VOCATIONAL_SCHOOLS = 'Școli profesionale'
+  CENTERS_OF_EXCELLENCE = 'Centrul de Excelenţă',
+  COLLEAGUES = 'Colegiul',
+  VOCATIONAL_SCHOOLS = 'Școala Profesională'
 }
 
 export enum DetailsType {

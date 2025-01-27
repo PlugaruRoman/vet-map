@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import type { LatLngExpression } from 'leaflet'
+import { LatLngExpression } from 'leaflet'
 import { DropdownList, NotFound, ListItemDetails, Search } from 'src/components'
 import { InstitutionType } from 'src/types'
 
@@ -9,25 +8,27 @@ type Props = {
   search?: string
   data: InstitutionType[]
   isOpen: boolean
+  selectedInstitution?: InstitutionType
   onSearch: (value?: string) => void
-  onClickInstitution: (coord?: LatLngExpression) => void
+  onClickInstitution: (
+    coord?: LatLngExpression,
+    institution?: InstitutionType
+  ) => void
 }
 
 export const DropdownMenu = ({
   data,
   search,
   isOpen,
+  selectedInstitution,
   onSearch,
   onClickInstitution
 }: Props) => {
-  const [selectedInstitution, setSelectedInstitution] =
-    useState<InstitutionType>()
+  const onSelect = (institution?: InstitutionType) =>
+    onClickInstitution(institution?.coordinates, institution)
 
-  const onSelect = (value?: InstitutionType) => {
-    setSelectedInstitution(value)
-    onClickInstitution(value?.coordinates)
-  }
-  const onClickBack = () => setSelectedInstitution(undefined)
+  const onClickBack = (institution?: InstitutionType) =>
+    onClickInstitution(institution?.coordinates, undefined)
 
   return (
     <>

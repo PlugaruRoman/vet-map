@@ -5,6 +5,7 @@ import { LayerIcon } from 'src/assets'
 import { MapTabsFilterType } from 'src/types'
 
 import './index.css'
+import { filterItems } from 'src/constants'
 
 type Props = {
   activeTab?: MapTabsFilterType
@@ -36,7 +37,7 @@ export const TabsBar = ({
           onClick={() => onChangeActiveTab(type)}
           className={`button ${activeTab === type ? 'button__active' : ''}`}
         >
-          {type}
+          {filterItems[type]}
         </Button>
       ))}
     </div>

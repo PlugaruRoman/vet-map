@@ -8,4 +8,4 @@ export const onSearchData = (data: InstitutionType[], search: string) =>
 export const onFilterData = (
   data: InstitutionType[],
   filter: MapTabsFilterType
-) => data?.filter((institution) => institution?.category === filter)
+) => data?.filter((institution) => institution?.type === filter)

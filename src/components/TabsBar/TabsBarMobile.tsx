@@ -4,6 +4,7 @@ import { ArrowDown, LayerIcon } from 'src/assets'
 import { MapTabsFilterType } from 'src/types'
 
 import './index.css'
+import { filterItems } from 'src/constants'
 
 type Props = {
   activeTab: MapTabsFilterType
@@ -51,7 +52,7 @@ export const TabsBarMobile = ({
                   setIsDropdownOpen(false)
                 }}
               >
-                {type}
+                {filterItems[type]}
               </Button>
             ))}
           </div>

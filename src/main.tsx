@@ -1,4 +1,3 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from 'src/App'
 
@@ -9,8 +8,4 @@ import './index.css'
 import './palette.css'
 import './variable.css'
 
-createRoot(document.getElementById('map-widget')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-)
+createRoot(document.getElementById('map-widget')!).render(<App />)

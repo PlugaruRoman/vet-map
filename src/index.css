@@ -36,7 +36,7 @@ a {
 }
 
 .tag-item {
-  color: --primary-color;
+  color: var(--primary-color);
   max-width: max-content;
   background-color: var(--background-color);
   font-size: var(--font-size-text);
@@ -64,4 +64,8 @@ a {
   width: 1px;
   height: 30px;
   background-color: var(--border-color);
+}
+
+.custom-marker {
+  color: var(--primary-color); /* Apply primary color */
 }

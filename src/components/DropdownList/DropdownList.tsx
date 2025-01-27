@@ -1,4 +1,5 @@
 import { InstitutionType } from 'src/types'
+import { LocationSmall } from 'src/assets'
 
 import './index.css'
 
@@ -16,13 +17,17 @@ export const DropdownList = ({ data, onSelect }: Props) => {
           className="dropdown-list-item"
           onClick={() => onSelect(institution)}
         >
-          <span className="tag-item">{institution?.category}</span>
+          <span className="tag-item">{institution?.type}</span>
 
           <p className="dropdown-list-item-title">{institution?.name}</p>
 
-          <span className="dropdown-list-item-address">
-            {institution?.physical_address}
-          </span>
+          <div className="dropdown-list-item-address-container">
+            <LocationSmall />
+
+            <div className="dropdown-list-item-address">
+              {institution?.physical_address}
+            </div>
+          </div>
         </li>
       ))}
     </ul>
