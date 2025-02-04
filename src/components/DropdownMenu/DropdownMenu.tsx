@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { LatLngExpression } from 'leaflet'
 import { DropdownList, NotFound, ListItemDetails, Search } from 'src/components'
 import { InstitutionType } from 'src/types'
@@ -24,8 +25,14 @@ export const DropdownMenu = ({
   onSearch,
   onClickInstitution
 }: Props) => {
-  const onSelect = (institution?: InstitutionType) =>
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const onSelect = (institution?: InstitutionType) => {
     onClickInstitution(institution?.coordinates, institution)
+    if (containerRef.current) {
+      containerRef.current.scrollTop = 0
+    }
+  }
 
   const onClickBack = (institution?: InstitutionType) =>
     onClickInstitution(institution?.coordinates, undefined)
@@ -33,7 +40,7 @@ export const DropdownMenu = ({
   return (
     <>
       {isOpen && (
-        <div className="dropdown-menu">
+        <div className="dropdown-menu" ref={containerRef}>
           <div className="dropdown-menu-content">
             {!selectedInstitution && (
               <>

@@ -2,8 +2,13 @@ import { InstitutionType, MapTabsFilterType } from 'src/types'
 
 export const onSearchData = (data: InstitutionType[], search: string) =>
   data?.filter((institution) =>
-    institution?.name?.toLowerCase().includes(search?.toLowerCase?.())
+    removeDiacritics(institution?.name)
+      .toLowerCase()
+      .includes(removeDiacritics(search).toLowerCase())
   )
+
+const removeDiacritics = (str: string = '') =>
+  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 
 export const onFilterData = (
   data: InstitutionType[],
