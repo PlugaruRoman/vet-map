@@ -71,7 +71,9 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('http://localhost:80/api/v1/institutions/')
+        const response = await fetch(
+          'https://harta-ipt.mec.gov.md/api/v1/institutions/'
+        )
         const data = await response.json()
         setInstitutions(data)
       } catch (error) {
