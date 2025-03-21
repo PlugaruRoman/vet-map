@@ -62,7 +62,7 @@ export const ListItemDetails = ({ data, onClickBack }: Props) => {
             <Put className="details-item-value">{data?.physical_address}</Put>
           </div>
           <div className="details-item">
-            <div className="details-item-label">Siteul instituției</div>
+            <div className="details-item-label">Site-ul instituției</div>
 
             <Put>
               {data?.website && (
@@ -73,7 +73,9 @@ export const ListItemDetails = ({ data, onClickBack }: Props) => {
             </Put>
           </div>
           <div className="details-item">
-            <div className="details-item-label">Adresa mail a instituției</div>
+            <div className="details-item-label">
+              Adresa de e-mail a instituției
+            </div>
 
             <Put className="details-item-value">{data?.email}</Put>
           </div>
