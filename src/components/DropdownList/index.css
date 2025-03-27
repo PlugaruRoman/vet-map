@@ -4,7 +4,7 @@
 
 .dropdown-list-item {
   border-top: 1px solid var(--border-color);
-  padding: 16px 0px;
+  padding: 16px 10px;
   display: flex;
   flex-direction: column;
   justify: center;
