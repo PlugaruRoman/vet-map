@@ -14,7 +14,7 @@ export const ListItemDetails = ({ data, onClickBack }: Props) => {
   const [activeDetailType, setActiveDetailType] = useState(DetailsType.DETAILS)
 
   const onChangeDetailType = (value: DetailsType) => setActiveDetailType(value)
-
+  console.log(data?.description)
   return (
     <>
       <button onClick={() => onClickBack(data)} className="details-item-button">
@@ -86,7 +86,11 @@ export const ListItemDetails = ({ data, onClickBack }: Props) => {
           </div>
         </>
       ) : (
-        <div dangerouslySetInnerHTML={{ __html: data?.description || '' }} />
+        <div
+          dangerouslySetInnerHTML={{
+            __html: data?.description?.replace?.(/\n/g, '<br>') || ''
+          }}
+        />
       )}
     </>
   )

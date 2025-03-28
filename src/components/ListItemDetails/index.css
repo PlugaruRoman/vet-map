@@ -30,6 +30,7 @@
 .details-item-tabs {
   display: flex;
   margin: 24px 0px;
+  gap: 10px;
 }
 
 .details-item {
